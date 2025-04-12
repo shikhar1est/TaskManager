@@ -13,11 +13,8 @@ import lombok.ToString;
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-<<<<<<< HEAD
-    @Column(name = "role1")
-=======
+    @JoinColumn(name = "role1")
     @Column(name = "role_id")
->>>>>>> 5b72e96111bee76f0edc498ca57f5d7ac1e70d96
     private Long id;
 
     @ToString.Exclude
