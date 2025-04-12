@@ -24,7 +24,11 @@ public class User {
     @Getter
     @Setter
     @ManyToMany(cascade = {CascadeType.PERSIST,CascadeType.MERGE}, fetch = FetchType.EAGER)
+<<<<<<< HEAD
     @JoinTable(name="userhhj",
+=======
+    @JoinTable(name="user_role",
+>>>>>>> 5b72e96111bee76f0edc498ca57f5d7ac1e70d96
             joinColumns = @JoinColumn(name="user_id"),
             inverseJoinColumns=@JoinColumn(name="role_id"))
     private Set<Role> roles=new HashSet<>();
