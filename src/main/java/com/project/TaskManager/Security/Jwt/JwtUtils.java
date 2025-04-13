@@ -14,7 +14,7 @@ import java.security.Key;
 import java.util.Date;
 
 @Component
-public class JwtUtils {
+public class JwtUtils { //this class is the core handler of Jwt operations
     private static final Logger logger = LoggerFactory.getLogger(JwtUtils.class);
 
     @Value("${spring.app.jwtSecret}")
@@ -53,9 +53,9 @@ public class JwtUtils {
                 .build();
         return cookie;
     }
-    public String generateTokenFromUsername(String username) {
+    public String generateTokenFromUsername(String username) { //Takes the username and generates a signed JWT
         return Jwts.builder()
-                .subject(username)
+                .subject(username) //This username is passed during login request
                 .issuedAt(new Date())
                 .expiration(new Date((new Date()).getTime() + jwtExpirationMs))
                 .signWith(key())
