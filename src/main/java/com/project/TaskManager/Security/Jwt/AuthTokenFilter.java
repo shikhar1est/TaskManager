@@ -1,3 +1,14 @@
+//Jwt Token Authentication Filter
+//more specifically a Spring Security filter that runs once per request (OncePerRequestFilter).
+//Purpose==>Authenticate each incoming request based on the JWT token that is sent (usually in headers or cookies).
+//Whenever a requests comes in,this filter is triggered, It tries to extract the JWT from the request (in your case, from cookies).
+//If a token is found, it:
+//Validates the token.
+//Extracts the username.
+//Loads the user details from DB.
+//Builds an Authentication object.
+//Stores it in the SecurityContext (so Spring Security knows this request is authenticated).
+
 package com.project.TaskManager.Security.Jwt;
 
 import jakarta.servlet.FilterChain;

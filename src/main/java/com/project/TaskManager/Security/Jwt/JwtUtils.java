@@ -1,4 +1,29 @@
-package com.project.TaskManager.Security.Jwt;
+//Here's how this authentication stuff goes:
+//A user using a client(website,app) sends a login request consisting of username/password/email
+//Some Authentication Manager, checks from the DB whether this user exists or not
+//After checking it goes “Cool, you’re legit. Here’s your access card.” and sends a Jwt token(access card)
+// back to the client
+//Then the user needs to call other protected APIs,there we attach the token in the form like
+// "Authorization: Bearer eyJhbGciOi..."
+//Now your backend needs to ask:
+//“Is this token still valid? Was it really issued by me? Has it expired? Is it tampered with?”
+//Even though the user was authenticated earlier, the server doesn’t remember that — because JWT is stateless.
+//That means:
+// 1:Server dosen't store any session
+// 2:It has to validate each token on every request from scratch
+//Think of JWT as an ID card:
+//        When you first log in (step 1), you get the card.
+//        Now, every time you enter a secure building (API route), you must show your ID card
+//        The guard (backend) checks:
+//        Is it real?
+//        Is it expired?
+//        Was it forged?
+
+//***We don’t remember who you are between requests. Your JWT token proves your identity every time.***
+
+
+
+        package com.project.TaskManager.Security.Jwt;
 
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
