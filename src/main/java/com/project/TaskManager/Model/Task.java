@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+
 @Entity
 @Data
 @AllArgsConstructor
@@ -16,7 +18,8 @@ public class Task {
     private String title;
     private String description;
     private int priority;
-    private boolean completed;
+    private LocalDate dueDate;
+    private TaskStatus status;
 
     @ManyToOne
     @JoinColumn(name="user_id")
